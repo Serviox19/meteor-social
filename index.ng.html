@@ -1,1 +1,8 @@
-<p>Nothing Here</p>
+<div ng-controller="eventsCtrl">
+  <ul>
+    <li ng-repeat="event in events">
+      <span>{{ event.name }}</span>
+      <p>{{ event.description }}</p>
+    </li>
+  </ul>
+</div>
