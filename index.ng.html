@@ -8,9 +8,11 @@
     </form>
 
     <ul>
-      <li ng-repeat="event in events">
-        <span class="title">{{ event.name }} <input type="submit" value="X" class="btn btn-danger" ng-click="events.remove(event)"></span>
-        <p class="description">{{ event.description }}</p> <hr>
+      <li ng-repeat="event in events" >
+        <span ng-click="selectMe($event)">
+          <p class="title">{{ event.name }}</p> <input type="submit" value="X" class="btn btn-danger">
+          <p class="description">{{ event.description }}</p> <hr>
+        </span>
       </li>
     </ul>
   </div>

@@ -14,3 +14,7 @@
   font-size: 1.3em;
   font-weight: bold;
 }
+
+.done {
+  text-decoration: line-through;
+}

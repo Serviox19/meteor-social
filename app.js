@@ -5,6 +5,10 @@ if(Meteor.isClient) {
 
   app.controller('eventsCtrl', ['$scope', '$meteor', function($scope, $meteor) {
     $scope.events = $meteor.collection(Events);
+
+    $scope.selectMe = function(event) {
+      $(event.target).addClass('done');
+    }
   }]);
 
 }// end is Client if
