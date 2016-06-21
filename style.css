@@ -5,3 +5,12 @@
 #form {
   margin-bottom: 20px;
 }
+
+.btn-danger {
+  float: right;
+}
+
+.title {
+  font-size: 1.3em;
+  font-weight: bold;
+}

@@ -1,23 +1,17 @@
-<div ng-controller="eventsCtrl">
+<div class="row" id="main" ng-controller="eventsCtrl">
+  <div class="col-md-6 col-md-offset-3">
+    <form class="form-inline" id="form">
+      <label>Enter Event Info</label>
+      <input type="text" class="form-control" ng-model="newEvent.name" placeholder="Event Name">
+      <input type="text" class="form-control" ng-model="newEvent.description" placeholder="Event Description">
+      <button class="btn btn-success" ng-click="events.push(newEvent); newEvent='';  ">Add</button>
+    </form>
 
-  <div class="row" id="main">
-    <div class="col-md-6 col-md-offset-3">
-
-      <form class="form-inline" id="form">
-        <label>Enter Event Info</label>
-        <input type="text" class="form-control" ng-model="newEvent.name" placeholder="Event Name">
-        <input type="text" class="form-control" ng-model="newEvent.description" placeholder="Event Description">
-        <button class="btn btn-success" ng-click="addEvent">Add</button>
-      </form>
-
-      <ul>
-        <li ng-repeat="event in events">
-          <span>{{ event.name }}</span>
-          <p>{{ event.description }}</p>
-        </li>
-      </ul>
-
-    </div>
+    <ul>
+      <li ng-repeat="event in events">
+        <span class="title">{{ event.name }} <input type="submit" value="X" class="btn btn-danger" ng-click="events.remove(event)"></span>
+        <p class="description">{{ event.description }}</p> <hr>
+      </li>
+    </ul>
   </div>
-
 </div>
