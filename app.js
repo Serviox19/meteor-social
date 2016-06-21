@@ -1,26 +1,26 @@
 Events = new Mongo.Collection('events');
 
 if(Meteor.isClient) {
-  var app = angular.module('socially', ['angular-meteor', 'ui-router']);
+  var app = angular.module('socially', ['angular-meteor', 'ui.router']);
 
-  app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
+  app.config(['$urlRouterProvider', '$stateProvider', '$locationProvider', function($urlRouterProvider, $stateProvider, $locationProvider) {
 
-    $locationProvider.html5Mode(true);
+    $urlRouterProvider.otherwise('/parties');
 
     $stateProvider
       .state('events', {
-        url: "/",
-        templateUrl: "",
-        controller: ""
+        url: "/events",
+        templateUrl: "events-list.ng.html",
+        controller: "eventsCtrl"
       })
       .state('eventDetails', {
-        url: "/",
-        templateUrl: "",
-        controller: ""
+        url: "/events/:eventId",
+        templateUrl: "events-details.ng.html",
+        controller: "eventsDetailsCtrl"
       })
 
-      $urlRouterProvider.otherwise('/');
-  });
+      $locationProvider.html5Mode(true);
+  }]);
 
   app.controller('eventsCtrl', ['$scope', '$meteor', function($scope, $meteor) {
     $scope.events = $meteor.collection(Events);
@@ -28,6 +28,12 @@ if(Meteor.isClient) {
     $scope.selectMe = function(event) {
       $(event.target).addClass('done');
     }
+  }]);
+
+  app.controller('eventsDetailsCtrl', ['$scope', '$stateParams', function($scope, $stateParams) {
+
+    $scope.eventId = $stateParams.eventId;
+
   }]);
 
 }// end is Client if

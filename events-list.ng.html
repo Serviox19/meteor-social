@@ -1,4 +1,4 @@
-<div class="row" id="main" ng-controller="eventsCtrl">
+<div class="row" id="main">
   <div class="col-md-6 col-md-offset-3">
     <form class="form-inline" id="form">
       <label>Enter Event Info</label>
@@ -10,7 +10,7 @@
     <ul>
       <li ng-repeat="event in events" >
         <span ng-click="selectMe($event)">
-          <p class="title">{{ event.name }}</p> <input type="submit" ng-click="events.remove(event)" value="X" class="btn btn-danger">
+          <a href="/events/{{ event._id }}"><p class="title">{{ event.name }}</p></a> <input type="submit" ng-click="events.remove(event)" value="X" class="btn btn-danger">
           <p class="description">{{ event.description }}</p> <hr>
         </span>
       </li>
