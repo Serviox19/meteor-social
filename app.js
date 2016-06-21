@@ -1,7 +1,26 @@
 Events = new Mongo.Collection('events');
 
 if(Meteor.isClient) {
-  var app = angular.module('socially', ['angular-meteor']);
+  var app = angular.module('socially', ['angular-meteor', 'ui-router']);
+
+  app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
+
+    $locationProvider.html5Mode(true);
+
+    $stateProvider
+      .state('events', {
+        url: "/",
+        templateUrl: "",
+        controller: ""
+      })
+      .state('eventDetails', {
+        url: "/",
+        templateUrl: "",
+        controller: ""
+      })
+
+      $urlRouterProvider.otherwise('/');
+  });
 
   app.controller('eventsCtrl', ['$scope', '$meteor', function($scope, $meteor) {
     $scope.events = $meteor.collection(Events);

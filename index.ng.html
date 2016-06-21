@@ -10,7 +10,7 @@
     <ul>
       <li ng-repeat="event in events" >
         <span ng-click="selectMe($event)">
-          <p class="title">{{ event.name }}</p> <input type="submit" value="X" class="btn btn-danger">
+          <p class="title">{{ event.name }}</p> <input type="submit" ng-click="events.remove(event)" value="X" class="btn btn-danger">
           <p class="description">{{ event.description }}</p> <hr>
         </span>
       </li>
