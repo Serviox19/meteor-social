@@ -15,7 +15,7 @@ if(Meteor.isClient) {
       })
       .state('eventDetails', {
         url: "/events/:eventId",
-        templateUrl: "events-details.ng.html",
+        templateUrl: "event-details.ng.html",
         controller: "eventsDetailsCtrl"
       })
 
@@ -30,9 +30,21 @@ if(Meteor.isClient) {
     }
   }]);
 
-  app.controller('eventsDetailsCtrl', ['$scope', '$stateParams', function($scope, $stateParams) {
+  app.controller('eventsDetailsCtrl', ['$scope', '$stateParams', '$meteor', function($scope, $stateParams, $meteor) {
 
-    $scope.eventId = $stateParams.eventId;
+    $scope.event = $meteor.object(Events, $stateParams.eventId, false);
+
+    $scope.save = function() {
+      $scope.event.save().then(function(numberOfDocs) {
+        console.log('Success', numberOfDocs);
+      }, function(error) {
+        console.log('error', error);
+      });
+    };
+
+    $scope.reset = function() {
+      $scope.event.reset();
+    };
 
   }]);
 

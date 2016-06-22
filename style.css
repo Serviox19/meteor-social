@@ -18,3 +18,7 @@
 .done {
   text-decoration: line-through;
 }
+
+.buttons {
+  width: 100px;
+}

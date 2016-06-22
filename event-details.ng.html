@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <h2>Edit Event Information:</h2> <br>
+        <label>Event Name:</label>
+        <input class="form-control" ng-model="event.name"> <br>
+        <label>Event Descrition:</label>
+        <input class="form-control" ng-model="event.description"> <br>
+      <div class="row">
+        <div class="col-md-4">
+          <button class="btn btn-danger buttons" ng-click="reset()">Reset</button>
+        </div>
+        <div class="col-md-4">
+          <button class="btn btn-success buttons" ng-click="save()">Save</button>
+        </div>
+        <div class="col-md-4">
+          <a href="/events"><button class="btn btn-primary buttons">Cancel</button></a>
+        </div>
+      </div><!-- End row -->
+    </div>
+  </div>
+</div>
+
