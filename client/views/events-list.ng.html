@@ -4,7 +4,7 @@
       <label>Enter Event Info</label>
       <input type="text" class="form-control" ng-model="newEvent.name" placeholder="Event Name">
       <input type="text" class="form-control" ng-model="newEvent.description" placeholder="Event Description">
-      <button class="btn btn-success" ng-click="events.push(newEvent); newEvent='';  ">Add</button>
+      <button class="btn btn-success" ng-click="newEvent.owner=$root.currentUser._id; events.push(newEvent); newEvent='';  ">Add</button>
     </form>
 
     <ul>
